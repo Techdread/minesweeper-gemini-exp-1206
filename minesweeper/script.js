@@ -7,9 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Difficulty settings
     const difficulty = {
-        beginner: { rows: 9, cols: 9, mines: 10 },
-        intermediate: { rows: 16, cols: 16, mines: 40 },
-        expert: { rows: 16, cols: 30, mines: 99 }
+        beginner: { rows: 10, cols: 10, mines: 10 },
+        normal: { rows: 15, cols: 15, mines: 40 },
+        expert: { rows: 20, cols: 20, mines: 99 }
     };
 
     const gridElement = document.getElementById('game-grid');
@@ -18,8 +18,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const mineCounterDisplay = document.getElementById('mine-counter');
     const gameOverMessage = document.getElementById('game-over-message');
     const gameWinMessage = document.getElementById('game-win-message');
+    const difficultySelect = document.getElementById('difficulty');
 
     resetButton.addEventListener('click', initGame);
+    difficultySelect.addEventListener('change', () => {
+        currentDifficulty = difficultySelect.value;
+        initGame();
+    });
 
     // Function to initialize the game
     function initGame() {

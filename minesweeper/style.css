@@ -8,78 +8,79 @@ body {
     margin: 0;
 }
 
-.game-container {
+#game-container {
     text-align: center;
 }
 
 #game-grid {
     display: grid;
-    grid-template-columns: repeat(9, 25px);
-    grid-template-rows: repeat(9, 25px);
+    grid-template-columns: repeat(10, 25px);
+    grid-template-rows: repeat(10, 25px);
     gap: 2px;
-    border-collapse: collapse;
-    margin: 20px auto;
+    margin-top: 20px;
 }
 
 #game-grid div {
     width: 25px;
     height: 25px;
-    background-color: #ccc;
-    border: 1px solid #999;
+    background-color: #ddd;
+    border: 1px solid #ccc;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    user-select: none;
 }
 
 #game-grid div.revealed {
-    background-color: #eee;
+    background-color: #fff;
     cursor: default;
 }
 
-#game-grid div.mine {
-    background-color: red;
-}
-
 #game-grid div.flagged {
-    background-color: yellow;
+    background-color: #ffcc00;
+    /* Yellow color for flagged squares */
 }
 
-.info-bar {
+#game-grid div.mine {
+    background-color: #ff0000;
+    /* Red color for mines */
+}
+
+#controls {
     display: flex;
     justify-content: space-around;
-    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
-#reset-button {
+#reset-button,
+#difficulty {
     padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
     background-color: #4CAF50;
     color: white;
     border: none;
-    cursor: pointer;
     border-radius: 5px;
 }
 
-#reset-button:hover {
-    background-color: #367c39;
+#difficulty {
+    margin-left: 10px;
+}
+
+#timer,
+#mine-counter {
+    font-size: 18px;
+    margin-top: 10px;
 }
 
 #game-over-message,
 #game-win-message {
-    display: none;
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #f44336;
-    color: white;
-    padding: 20px 40px;
+    color: red;
     font-size: 24px;
-    border-radius: 10px;
-    z-index: 10;
+    margin-top: 10px;
+    display: none;
 }
 
 #game-win-message {
-    background-color: #4CAF50;
+    color: green;
 }
